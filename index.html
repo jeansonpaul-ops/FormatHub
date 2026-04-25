@@ -985,10 +985,10 @@ function renderFavs() {
   };
   row.innerHTML = favs.map(id => {
     const app = APPS[id]; if (!app) return "";
-    return \`<button class="fav-chip" onclick="openApp('\${id}')">
-      <span class="fav-chip-dot" style="background:\${DOTS[id]||'#888'}"></span>
-      \${app.name}
-    </button>\`;
+    return `<button class="fav-chip" onclick="openApp('${id}')">
+      <span class="fav-chip-dot" style="background:${DOTS[id]||'#888'}"></span>
+      ${app.name}
+    </button>`;
   }).join("");
 }
 
@@ -1022,12 +1022,12 @@ const APP_DOTS = {
   "frame-calc":"#14dca0","pao-nc":"#ff5050","lv-nc-print":"#aa64ff"
 };
 const APP_ICONS = {
-  "stock-scan": \`<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="12" width="13" height="8" rx="2" fill="rgba(255,255,255,0.15)" stroke="#fff" stroke-width="1.4"/><path d="M5 20 L4.5 25.5 L9 25.5 L9.5 20" fill="rgba(255,255,255,0.12)" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"/><rect x="13.5" y="14" width="3" height="4" rx="0.5" fill="rgba(79,200,255,0.5)" stroke="rgba(255,255,255,0.8)" stroke-width="1"/><line x1="17.5" y1="12.5" x2="25" y2="10" stroke="#4fffb0" stroke-width="1.2" stroke-linecap="round"/><line x1="17.5" y1="16" x2="25" y2="16" stroke="#4fffb0" stroke-width="1.8" stroke-linecap="round"/><line x1="17.5" y1="19.5" x2="25" y2="22" stroke="#4fffb0" stroke-width="1.2" stroke-linecap="round"/><rect x="19" y="5" width="8" height="7" rx="1" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.45)" stroke-width="1"/><line x1="21" y1="6.5" x2="21" y2="11" stroke="#fff" stroke-width="1"/><line x1="22.5" y1="6.5" x2="22.5" y2="11" stroke="#fff" stroke-width="1.8"/><line x1="24" y1="6.5" x2="24" y2="11" stroke="#fff" stroke-width="1"/></svg>\`,
-  "trim-scan": \`<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="6" y="6" width="16" height="16" rx="1" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="2 2"/><line x1="2" y1="6" x2="5" y2="6" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><line x1="6" y1="2" x2="6" y2="5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><line x1="23" y1="6" x2="26" y2="6" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><line x1="22" y1="2" x2="22" y2="5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><line x1="2" y1="22" x2="5" y2="22" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><line x1="6" y1="23" x2="6" y2="26" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><line x1="23" y1="22" x2="26" y2="22" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><line x1="22" y1="23" x2="22" y2="26" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><line x1="6" y1="14" x2="22" y2="14" stroke="#4fffb0" stroke-width="2" stroke-linecap="round"/><line x1="6" y1="12.5" x2="22" y2="12.5" stroke="#4fffb0" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/><line x1="6" y1="15.5" x2="22" y2="15.5" stroke="#4fffb0" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/><polygon points="22,11.5 26,14 22,16.5" fill="#4fffb0"/></svg>\`,
-  "plate-id": \`<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="1" y="7" width="26" height="15" rx="2.5" fill="rgba(255,255,255,0.1)" stroke="#fff" stroke-width="1.6"/><circle cx="4.5" cy="10.5" r="1.3" fill="rgba(255,255,255,0.45)" stroke="rgba(255,255,255,0.6)" stroke-width="0.6"/><circle cx="23.5" cy="10.5" r="1.3" fill="rgba(255,255,255,0.45)"/><circle cx="4.5" cy="18.5" r="1.3" fill="rgba(255,255,255,0.45)"/><circle cx="23.5" cy="18.5" r="1.3" fill="rgba(255,255,255,0.45)"/><rect x="7" y="10.5" width="14" height="8" rx="1.2" fill="rgba(255,255,255,0.88)" stroke="rgba(255,200,80,0.9)" stroke-width="1.2"/><rect x="7" y="10.5" width="14" height="2.5" rx="1.2" fill="rgba(255,165,40,0.85)"/><line x1="9" y1="14" x2="9" y2="17.5" stroke="rgba(30,30,30,0.85)" stroke-width="1"/><line x1="10.5" y1="14" x2="10.5" y2="17.5" stroke="rgba(30,30,30,0.85)" stroke-width="1.8"/><line x1="12" y1="14" x2="12" y2="17.5" stroke="rgba(30,30,30,0.85)" stroke-width="1"/><line x1="13.5" y1="14" x2="13.5" y2="17.5" stroke="rgba(30,30,30,0.85)" stroke-width="1.5"/><line x1="15" y1="14" x2="15" y2="17.5" stroke="rgba(30,30,30,0.85)" stroke-width="1"/><line x1="16.5" y1="14" x2="16.5" y2="17.5" stroke="rgba(30,30,30,0.85)" stroke-width="1.8"/><line x1="18" y1="14" x2="18" y2="17.5" stroke="rgba(30,30,30,0.85)" stroke-width="1"/></svg>\`,
-  "frame-calc": \`<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="18" height="18" rx="1.5" fill="rgba(255,255,255,0.08)" stroke="#fff" stroke-width="1.8"/><rect x="6" y="6" width="10" height="10" rx="0.5" fill="rgba(0,0,0,0.3)" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/><rect x="2" y="22" width="24" height="4" rx="1" fill="rgba(255,255,255,0.15)" stroke="#fff" stroke-width="1.2"/><line x1="6" y1="22" x2="6" y2="24.5" stroke="#fff" stroke-width="1"/><line x1="10" y1="22" x2="10" y2="25" stroke="#fff" stroke-width="1.2"/><line x1="14" y1="22" x2="14" y2="24.5" stroke="#fff" stroke-width="1"/><line x1="18" y1="22" x2="18" y2="25" stroke="#fff" stroke-width="1.2"/><rect x="22" y="2" width="4" height="18" rx="1" fill="rgba(255,255,255,0.15)" stroke="#fff" stroke-width="1.2"/><line x1="22" y1="6" x2="24.5" y2="6" stroke="#fff" stroke-width="1"/><line x1="22" y1="10" x2="25" y2="10" stroke="#fff" stroke-width="1.2"/><line x1="22" y1="14" x2="24.5" y2="14" stroke="#fff" stroke-width="1"/></svg>\`,
-  "pao-nc": \`<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 22 L10 10 L16 6 L14 13 Z" fill="rgba(255,255,255,0.15)" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/><path d="M4 22 L6.5 19.5 L8 21 Z" fill="rgba(255,255,255,0.7)" stroke="#fff" stroke-width="0.8" stroke-linejoin="round"/><path d="M10 10 L16 6 L18 8 L14 13 Z" fill="rgba(255,255,255,0.2)" stroke="#fff" stroke-width="1.3" stroke-linejoin="round"/><line x1="16" y1="6" x2="20" y2="3" stroke="rgba(255,255,255,0.55)" stroke-width="1" stroke-linecap="round" stroke-dasharray="1.5 1.5"/><rect x="18.5" y="1.5" width="3" height="3" rx="0.5" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.2"/><circle cx="21" cy="21" r="6.5" fill="#c0392b" stroke="rgba(255,255,255,0.95)" stroke-width="1.6"/><line x1="18" y1="18" x2="24" y2="24" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><line x1="24" y1="18" x2="18" y2="24" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>\`,
-  "lv-nc-print": \`<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="11" width="24" height="11" rx="2.5" fill="rgba(255,255,255,0.12)" stroke="#fff" stroke-width="1.5"/><rect x="7" y="7" width="14" height="5" rx="1" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/><rect x="8" y="21" width="12" height="5.5" rx="0" fill="rgba(255,255,255,0.88)" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/><line x1="10" y1="22.5" x2="10" y2="25.5" stroke="rgba(80,80,80,0.9)" stroke-width="1"/><line x1="11.5" y1="22.5" x2="11.5" y2="25.5" stroke="rgba(80,80,80,0.9)" stroke-width="1.6"/><line x1="13" y1="22.5" x2="13" y2="25.5" stroke="rgba(80,80,80,0.9)" stroke-width="1"/><line x1="14.5" y1="22.5" x2="14.5" y2="25.5" stroke="rgba(80,80,80,0.9)" stroke-width="1.4"/><line x1="16" y1="22.5" x2="16" y2="25.5" stroke="rgba(80,80,80,0.9)" stroke-width="1"/><circle cx="20.5" cy="9.5" r="6.5" fill="#c0392b" stroke="rgba(255,255,255,0.95)" stroke-width="1.6"/><line x1="17.5" y1="6.5" x2="23.5" y2="12.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><line x1="23.5" y1="6.5" x2="17.5" y2="12.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>\`
+  "stock-scan": `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="12" width="13" height="8" rx="2" fill="rgba(255,255,255,0.15)" stroke="#fff" stroke-width="1.4"/><path d="M5 20 L4.5 25.5 L9 25.5 L9.5 20" fill="rgba(255,255,255,0.12)" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"/><rect x="13.5" y="14" width="3" height="4" rx="0.5" fill="rgba(79,200,255,0.5)" stroke="rgba(255,255,255,0.8)" stroke-width="1"/><line x1="17.5" y1="12.5" x2="25" y2="10" stroke="#4fffb0" stroke-width="1.2" stroke-linecap="round"/><line x1="17.5" y1="16" x2="25" y2="16" stroke="#4fffb0" stroke-width="1.8" stroke-linecap="round"/><line x1="17.5" y1="19.5" x2="25" y2="22" stroke="#4fffb0" stroke-width="1.2" stroke-linecap="round"/><rect x="19" y="5" width="8" height="7" rx="1" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.45)" stroke-width="1"/><line x1="21" y1="6.5" x2="21" y2="11" stroke="#fff" stroke-width="1"/><line x1="22.5" y1="6.5" x2="22.5" y2="11" stroke="#fff" stroke-width="1.8"/><line x1="24" y1="6.5" x2="24" y2="11" stroke="#fff" stroke-width="1"/></svg>`,
+  "trim-scan": `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="6" y="6" width="16" height="16" rx="1" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="2 2"/><line x1="2" y1="6" x2="5" y2="6" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><line x1="6" y1="2" x2="6" y2="5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><line x1="23" y1="6" x2="26" y2="6" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><line x1="22" y1="2" x2="22" y2="5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><line x1="2" y1="22" x2="5" y2="22" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><line x1="6" y1="23" x2="6" y2="26" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><line x1="23" y1="22" x2="26" y2="22" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><line x1="22" y1="23" x2="22" y2="26" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><line x1="6" y1="14" x2="22" y2="14" stroke="#4fffb0" stroke-width="2" stroke-linecap="round"/><line x1="6" y1="12.5" x2="22" y2="12.5" stroke="#4fffb0" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/><line x1="6" y1="15.5" x2="22" y2="15.5" stroke="#4fffb0" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/><polygon points="22,11.5 26,14 22,16.5" fill="#4fffb0"/></svg>`,
+  "plate-id": `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="1" y="7" width="26" height="15" rx="2.5" fill="rgba(255,255,255,0.1)" stroke="#fff" stroke-width="1.6"/><circle cx="4.5" cy="10.5" r="1.3" fill="rgba(255,255,255,0.45)" stroke="rgba(255,255,255,0.6)" stroke-width="0.6"/><circle cx="23.5" cy="10.5" r="1.3" fill="rgba(255,255,255,0.45)"/><circle cx="4.5" cy="18.5" r="1.3" fill="rgba(255,255,255,0.45)"/><circle cx="23.5" cy="18.5" r="1.3" fill="rgba(255,255,255,0.45)"/><rect x="7" y="10.5" width="14" height="8" rx="1.2" fill="rgba(255,255,255,0.88)" stroke="rgba(255,200,80,0.9)" stroke-width="1.2"/><rect x="7" y="10.5" width="14" height="2.5" rx="1.2" fill="rgba(255,165,40,0.85)"/><line x1="9" y1="14" x2="9" y2="17.5" stroke="rgba(30,30,30,0.85)" stroke-width="1"/><line x1="10.5" y1="14" x2="10.5" y2="17.5" stroke="rgba(30,30,30,0.85)" stroke-width="1.8"/><line x1="12" y1="14" x2="12" y2="17.5" stroke="rgba(30,30,30,0.85)" stroke-width="1"/><line x1="13.5" y1="14" x2="13.5" y2="17.5" stroke="rgba(30,30,30,0.85)" stroke-width="1.5"/><line x1="15" y1="14" x2="15" y2="17.5" stroke="rgba(30,30,30,0.85)" stroke-width="1"/><line x1="16.5" y1="14" x2="16.5" y2="17.5" stroke="rgba(30,30,30,0.85)" stroke-width="1.8"/><line x1="18" y1="14" x2="18" y2="17.5" stroke="rgba(30,30,30,0.85)" stroke-width="1"/></svg>`,
+  "frame-calc": `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="18" height="18" rx="1.5" fill="rgba(255,255,255,0.08)" stroke="#fff" stroke-width="1.8"/><rect x="6" y="6" width="10" height="10" rx="0.5" fill="rgba(0,0,0,0.3)" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/><rect x="2" y="22" width="24" height="4" rx="1" fill="rgba(255,255,255,0.15)" stroke="#fff" stroke-width="1.2"/><line x1="6" y1="22" x2="6" y2="24.5" stroke="#fff" stroke-width="1"/><line x1="10" y1="22" x2="10" y2="25" stroke="#fff" stroke-width="1.2"/><line x1="14" y1="22" x2="14" y2="24.5" stroke="#fff" stroke-width="1"/><line x1="18" y1="22" x2="18" y2="25" stroke="#fff" stroke-width="1.2"/><rect x="22" y="2" width="4" height="18" rx="1" fill="rgba(255,255,255,0.15)" stroke="#fff" stroke-width="1.2"/><line x1="22" y1="6" x2="24.5" y2="6" stroke="#fff" stroke-width="1"/><line x1="22" y1="10" x2="25" y2="10" stroke="#fff" stroke-width="1.2"/><line x1="22" y1="14" x2="24.5" y2="14" stroke="#fff" stroke-width="1"/></svg>`,
+  "pao-nc": `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 22 L10 10 L16 6 L14 13 Z" fill="rgba(255,255,255,0.15)" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/><path d="M4 22 L6.5 19.5 L8 21 Z" fill="rgba(255,255,255,0.7)" stroke="#fff" stroke-width="0.8" stroke-linejoin="round"/><path d="M10 10 L16 6 L18 8 L14 13 Z" fill="rgba(255,255,255,0.2)" stroke="#fff" stroke-width="1.3" stroke-linejoin="round"/><line x1="16" y1="6" x2="20" y2="3" stroke="rgba(255,255,255,0.55)" stroke-width="1" stroke-linecap="round" stroke-dasharray="1.5 1.5"/><rect x="18.5" y="1.5" width="3" height="3" rx="0.5" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.2"/><circle cx="21" cy="21" r="6.5" fill="#c0392b" stroke="rgba(255,255,255,0.95)" stroke-width="1.6"/><line x1="18" y1="18" x2="24" y2="24" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><line x1="24" y1="18" x2="18" y2="24" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>`,
+  "lv-nc-print": `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="11" width="24" height="11" rx="2.5" fill="rgba(255,255,255,0.12)" stroke="#fff" stroke-width="1.5"/><rect x="7" y="7" width="14" height="5" rx="1" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/><rect x="8" y="21" width="12" height="5.5" rx="0" fill="rgba(255,255,255,0.88)" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/><line x1="10" y1="22.5" x2="10" y2="25.5" stroke="rgba(80,80,80,0.9)" stroke-width="1"/><line x1="11.5" y1="22.5" x2="11.5" y2="25.5" stroke="rgba(80,80,80,0.9)" stroke-width="1.6"/><line x1="13" y1="22.5" x2="13" y2="25.5" stroke="rgba(80,80,80,0.9)" stroke-width="1"/><line x1="14.5" y1="22.5" x2="14.5" y2="25.5" stroke="rgba(80,80,80,0.9)" stroke-width="1.4"/><line x1="16" y1="22.5" x2="16" y2="25.5" stroke="rgba(80,80,80,0.9)" stroke-width="1"/><circle cx="20.5" cy="9.5" r="6.5" fill="#c0392b" stroke="rgba(255,255,255,0.95)" stroke-width="1.6"/><line x1="17.5" y1="6.5" x2="23.5" y2="12.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><line x1="23.5" y1="6.5" x2="17.5" y2="12.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>`
 };
 const IC_CLASSES = {
   "stock-scan":"ic-1","trim-scan":"ic-2","plate-id":"ic-3",
@@ -1055,18 +1055,18 @@ function renderApps() {
     const app = APPS[id]; if (!app) return "";
     const isFav = favs.includes(id);
     const isNew = badges[id];
-    return \`
-    <button class="app-card \${CARD_CLASSES[id]||''}" onclick="openApp('\${id}')">
-      <button class="fav-btn \${isFav ? 'active' : ''}" onclick="toggleFav('\${id}', event)" title="\${isFav ? 'Retirer des favoris' : 'Ajouter aux favoris'}">\${isFav ? '★' : '☆'}</button>
-      <div class="app-card-icon \${IC_CLASSES[id]||''}">\${APP_ICONS[id]||''}</div>
+    return `
+    <button class="app-card ${CARD_CLASSES[id]||''}" onclick="openApp('${id}')">
+      <button class="fav-btn ${isFav ? 'active' : ''}" onclick="toggleFav('${id}', event)" title="${isFav ? 'Retirer des favoris' : 'Ajouter aux favoris'}">${isFav ? '★' : '☆'}</button>
+      <div class="app-card-icon ${IC_CLASSES[id]||''}">${APP_ICONS[id]||''}</div>
       <div class="app-card-info">
         <div style="display:flex;align-items:center;gap:7px;">
-          <span class="app-card-name">\${app.name}</span>
-          \${isNew ? '<span class="badge-new">Nouveau</span>' : ''}
+          <span class="app-card-name">${app.name}</span>
+          ${isNew ? '<span class="badge-new">Nouveau</span>' : ''}
         </div>
-        <div class="app-card-desc">\${DESCS[id]||''}</div>
+        <div class="app-card-desc">${DESCS[id]||''}</div>
       </div>
-    </button>\`;
+    </button>`;
   }).join("");
 }
 
@@ -1080,16 +1080,16 @@ function openAdmin() {
   // Populate new badges grid
   const badges = getNewBadges();
   document.getElementById("admin-new-grid").innerHTML = Object.keys(APPS).map(id =>
-    \`<label class="admin-new-row">
-      <span>\${APPS[id].name}</span>
-      <input type="checkbox" class="badge-new-toggle" data-appid="\${id}" \${badges[id] ? 'checked' : ''}>
-    </label>\`
+    `<label class="admin-new-row">
+      <span>${APPS[id].name}</span>
+      <input type="checkbox" class="badge-new-toggle" data-appid="${id}" ${badges[id] ? 'checked' : ''}>
+    </label>`
   ).join("");
 
   // Populate user selector
   const sel = document.getElementById("admin-user-select");
   sel.innerHTML = USERS.filter(u => !u.isAdmin).map(u =>
-    \`<option value="\${u.user}">\${u.name}</option>\`
+    `<option value="${u.user}">${u.name}</option>`
   ).join("");
   loadUserApps();
 
@@ -1103,10 +1103,10 @@ function loadUserApps() {
   const override = localStorage.getItem("fh-user-apps-" + username);
   const userApps = override ? JSON.parse(override) : (USERS.find(u => u.user===username)?.apps || Object.keys(APPS));
   document.getElementById("admin-user-apps-grid").innerHTML = Object.keys(APPS).map(id =>
-    \`<label class="admin-app-row">
-      <input type="checkbox" data-appid="\${id}" \${userApps.includes(id) ? 'checked' : ''}>
-      \${APPS[id].name}
-    </label>\`
+    `<label class="admin-app-row">
+      <input type="checkbox" data-appid="${id}" ${userApps.includes(id) ? 'checked' : ''}>
+      ${APPS[id].name}
+    </label>`
   ).join("");
 }
 function saveAdminSettings() {
