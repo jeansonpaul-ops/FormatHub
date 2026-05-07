@@ -1056,11 +1056,12 @@ function cycleTheme() {
 }
 
 // ── AUTH ──
+// ── LOGIN — insensible à la casse ──
 function doLogin() {
   const u = document.getElementById("input-user").value.trim();
   const p = document.getElementById("input-pw").value;
   const err = document.getElementById("login-err");
-  const found = USERS.find(x => x.user === u && x.pw === p);
+  const found = USERS.find(x => x.user.toLowerCase() === u.toLowerCase() && x.pw === p);
   if (found) {
     err.classList.remove("show");
     currentUser = found;
@@ -1075,6 +1076,18 @@ function doLogin() {
     card.style.animation = "shake 0.4s ease";
   }
 }
+
+// ── INIT ──
+(function init() {
+  const saved = parseInt(localStorage.getItem("pc-theme") || "0");
+  if (!isNaN(saved) && saved >= 0 && saved < THEMES.length) {
+    themeIdx = saved; applyTheme(themeIdx);
+  }
+  handleDeepLink();
+  if (!tryRestoreSession()) {
+    document.getElementById("screen-login").style.display = "flex";
+  }
+})();
 
 // Accès invité NC PAO — géré directement dans NC-PRINT_V3.html
 
@@ -1453,21 +1466,6 @@ function togglePw() {
 window.addEventListener("online",  () => document.getElementById("offline-bar").classList.remove("show"));
 window.addEventListener("offline", () => document.getElementById("offline-bar").classList.add("show"));
 if (!navigator.onLine) document.getElementById("offline-bar").classList.add("show");
-
-// ── INIT ──
-(function init() {
-  const saved = parseInt(localStorage.getItem("pc-theme") || "0");
-  if (!isNaN(saved) && saved >= 0 && saved < THEMES.length) {
-    themeIdx = saved; applyTheme(themeIdx);
-  }
-  // Deep link QR avant login
-  handleDeepLink();
-  // Restaurer session
-  if (!tryRestoreSession()) {
-    // Pas de session → écran login visible
-    document.getElementById("screen-login").style.display = "flex";
-  }
-})();
 
 </script>
 
